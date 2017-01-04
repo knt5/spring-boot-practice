@@ -1,0 +1,11 @@
+.gradle
+/bin/
+*.jar
+
+# STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
