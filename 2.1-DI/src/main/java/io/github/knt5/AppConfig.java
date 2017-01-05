@@ -15,4 +15,9 @@ public class AppConfig {
 	public ArgumentResolver argumentResolver() {
 		return new ScanArgumentResolver();
 	}
+	
+	@Bean
+	public Front front() {
+		return new Front();
+	}
 }
