@@ -3,6 +3,9 @@ package io.github.knt5;
 import java.io.InputStream;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ScanArgumentResolver implements ArgumentResolver {
 	@Override
 	public Argument resolve(InputStream stream) {
