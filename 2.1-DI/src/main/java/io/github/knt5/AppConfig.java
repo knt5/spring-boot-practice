@@ -10,4 +10,9 @@ public class AppConfig {
 		return new AdditionCalculator();
 		//return new MultiplicationCalculator();
 	}
+	
+	@Bean
+	public ArgumentResolver argumentResolver() {
+		return new ScanArgumentResolver();
+	}
 }
