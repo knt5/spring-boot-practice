@@ -24,6 +24,6 @@ public class Application implements CommandLineRunner {
 		System.out.println(createdCustomer + " is created.");
 		
 		// Show
-		customerRepository.findAll().forEach(System.out::println);
+		customerRepository.findAllOrderByName().forEach(System.out::println);
 	}
 }
