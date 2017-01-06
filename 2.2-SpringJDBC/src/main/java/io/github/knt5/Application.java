@@ -24,7 +24,7 @@ public class Application implements CommandLineRunner {
 		// Create SQL
 		String sql = "SELECT id, first_name, last_name FROM customers WHERE id = :id";
 		SqlParameterSource param = new MapSqlParameterSource()
-				.addValue("id", 3);
+				.addValue("id", 5);
 		
 		// Query
 		Customer result = jdbcTemplate.queryForObject(sql, param, (resultSet, rowNum) -> new Customer(
