@@ -29,6 +29,9 @@ dependencies {
 	// NekoHTML For Thymeleaf's template mode: LEGACYHTML5
 	compile('net.sourceforge.nekohtml:nekohtml:1.9.22')
 	
+	// DB migration
+	compile("org.flywaydb:flyway-core")
+	
 	// Base
 	compile("org.springframework.boot:spring-boot-devtools")
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
