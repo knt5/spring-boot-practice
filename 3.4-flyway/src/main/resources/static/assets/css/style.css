@@ -1,0 +1,8 @@
+.error-input {
+	border-color: #f00;
+	margin-left: 5px;
+}
+
+.error-message {
+	color: #f00;
+}
