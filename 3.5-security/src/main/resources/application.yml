@@ -8,10 +8,14 @@ spring:
     sql-script-encoding: utf8
     username: sa
     password:
-  
+
   jpa:
     hibernate:
       ddl-auto: validate
-  
+
   thymeleaf:
     mode: HTML
+
+security:
+  basic:
+    enabled: false
