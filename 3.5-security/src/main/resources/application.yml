@@ -14,4 +14,4 @@ spring:
       ddl-auto: validate
   
   thymeleaf:
-    mode: LEGACYHTML5
+    mode: HTML

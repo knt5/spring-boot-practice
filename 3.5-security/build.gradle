@@ -26,9 +26,6 @@ repositories {
 }
 
 dependencies {
-	// NekoHTML For Thymeleaf's template mode: LEGACYHTML5
-	compile('net.sourceforge.nekohtml:nekohtml:1.9.22')
-	
 	// DB migration
 	compile("org.flywaydb:flyway-core")
 	
@@ -42,3 +39,7 @@ dependencies {
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+ext['thymeleaf.version'] = '3.0.3.RELEASE'
+ext['thymeleaf-layout-dialect.version'] = '2.1.2'
+ext['thymeleaf-extras-springsecurity4'] = '3.0.1.RELEASE'
