@@ -20,7 +20,7 @@ public class CustomerService {
 	CustomerRepository customerRepository;
 	
 	public List<Customer> findAll() {
-		return customerRepository.findAllOrderByName();
+		return customerRepository.findAllWithUserOrderByName();
 	}
 	
 	public Page<Customer> findAll(Pageable pageable) {

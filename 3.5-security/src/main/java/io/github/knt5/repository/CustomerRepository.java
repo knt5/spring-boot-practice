@@ -15,4 +15,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	
 	@Query("SELECT x FROM Customer x ORDER BY x.firstName, x.lastName")
 	public Page<Customer> findAllOrderByName(Pageable pageable);
+	
+	@Query("SELECT x FROM Customer x JOIN FETCH x.user ORDER BY x.firstName, x.lastName")
+	public List<Customer> findAllWithUserOrderByName();
 }
