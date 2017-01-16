@@ -3,7 +3,9 @@ package io.github.knt5.service;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 import io.github.knt5.domain.User;
+import lombok.Data;
 
+@Data
 public class LoginUserDetails extends org.springframework.security.core.userdetails.User {
 	private final User user;
 	

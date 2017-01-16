@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import io.github.knt5.domain.Customer;
+import io.github.knt5.domain.User;
 import io.github.knt5.repository.CustomerRepository;
 
 @Service
@@ -30,11 +31,13 @@ public class CustomerService {
 		return customerRepository.findOne(id);
 	}
 	
-	public Customer create(Customer customer) {
+	public Customer create(Customer customer, User user) {
+		customer.setUser(user);
 		return customerRepository.save(customer);
 	}
 	
-	public Customer update(Customer customer) {
+	public Customer update(Customer customer, User user) {
+		customer.setUser(user);
 		return customerRepository.save(customer);
 	}
 	

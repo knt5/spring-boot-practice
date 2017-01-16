@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import io.github.knt5.domain.Customer;
 import io.github.knt5.form.CustomerForm;
 import io.github.knt5.service.CustomerService;
+import io.github.knt5.service.LoginUserDetails;
 
 @Controller
 @RequestMapping("customers")
@@ -38,7 +40,12 @@ public class CustomerController {
 	}
 	
 	@PostMapping(path = "create")
-	public String create(@Validated CustomerForm customerForm, BindingResult bindingResult, Model model) {
+	public String create(
+			@Validated CustomerForm customerForm,
+			BindingResult bindingResult,
+			Model model,
+			@AuthenticationPrincipal LoginUserDetails userDetails
+	) {
 		if (bindingResult.hasErrors()) {
 			return list(model);
 		}
@@ -48,7 +55,7 @@ public class CustomerController {
 		BeanUtils.copyProperties(customerForm, customer);
 		
 		// Save to DB
-		customerService.create(customer);
+		customerService.create(customer, userDetails.getUser());
 		
 		// Redirect to list view
 		return "redirect:/customers";
@@ -65,7 +72,8 @@ public class CustomerController {
 	public String edit(
 			@RequestParam Integer id,
 			@Validated CustomerForm customerForm,
-			BindingResult bindingResult
+			BindingResult bindingResult,
+			@AuthenticationPrincipal LoginUserDetails userDetails
 	) {
 		if (bindingResult.hasErrors()) {
 			return editForm(id, customerForm);
@@ -75,7 +83,7 @@ public class CustomerController {
 		Customer customer = new Customer();
 		BeanUtils.copyProperties(customerForm, customer);
 		customer.setId(id);
-		customerService.update(customer);
+		customerService.update(customer, userDetails.getUser());
 		
 		// Redirect
 		return "redirect:/customers";
