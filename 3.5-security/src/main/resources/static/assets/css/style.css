@@ -7,6 +7,13 @@
 	color: #f00;
 }
 
-.customer-table {
+.customer-table,
+.customer-table th,
+.customer-table td {
+	border-collapse: collapse;
 	border: 1px solid #ccc;
+}
+
+.customer-table th {
+	background: #ddd;
 }
