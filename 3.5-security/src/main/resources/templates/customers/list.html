@@ -6,6 +6,11 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
 </head>
 <body>
+<h1>Customer management system</h1>
+<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Logout">
+</form>
+<hr>
 <div>
 	<form th:action="@{/customers/create}" th:object="${customerForm}" method="post">
 		<dl>
@@ -28,11 +33,20 @@
 	</form>
 </div>
 <hr>
-<table>
+<table class="customer-table">
+	<tr>
+		<th>ID</th>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Account representative</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
 	<tr th:each="customer: ${customers}">
 		<td th:text="${customer.id}">100</td>
 		<td th:text="${customer.firstName}">Taro</td>
 		<td th:text="${customer.lastName}">Yamada</td>
+		<td th:text="${customer.user.username}">doraemon</td>
 		<td>
 			<form th:action="@{/customers/edit}" method="get">
 				<input type="submit" name="form" value="Edit">
