@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 	<meta charset="UTF-8">
 	<title>Customers list</title>
@@ -7,6 +9,7 @@
 </head>
 <body>
 <h1>Customer management system</h1>
+Login name: <span sec:authentication="principal.user.username">doraemon</span>
 <form th:action="@{/logout}" method="post">
 	<input type="submit" value="Logout">
 </form>
