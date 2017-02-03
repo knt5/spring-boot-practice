@@ -1,9 +1,12 @@
 package io.github.knt5.web;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +27,9 @@ public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 	
+	@Autowired
+	private MessageSource messageSource;
+	
 	@ModelAttribute
 	CustomerForm setUpCustomerForm() {
 		// model.addAttribute(new CustomerForm()); --> ${customerForm} in template file
@@ -34,6 +40,12 @@ public class CustomerController {
 	public String list(Model model) {
 		List<Customer> customers= customerService.findAll();
 		model.addAttribute("customers", customers);
+		
+		// Check locale
+		Locale locale = LocaleContextHolder.getLocale();
+		System.out.println(locale);
+		System.out.println(messageSource.getMessage("msg", null, locale));
+		
 		return "customers/list";
 	}
 	
