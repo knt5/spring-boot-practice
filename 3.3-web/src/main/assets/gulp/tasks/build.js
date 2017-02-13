@@ -15,7 +15,7 @@ gulp.task('build:css', () => {
 		.pipe(sass({
 				//outputStyle: 'compressed'
 			}).on('error', sass.logError))
-		.pipe(gulp.dest('../static/assets/css'))
+		.pipe(gulp.dest('../resources/static/assets/css'))
 });
 
 gulp.task('build', [
