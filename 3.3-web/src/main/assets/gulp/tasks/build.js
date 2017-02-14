@@ -5,7 +5,7 @@ const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 
 gulp.task('build:css', () => {
-	return gulp.src('css/**/*.scss')
+	return gulp.src('css/views/**/*.scss')
 		.pipe(plumber({
 			errorHandler: function(err) {
 				console.error(err.messageFormatted);
