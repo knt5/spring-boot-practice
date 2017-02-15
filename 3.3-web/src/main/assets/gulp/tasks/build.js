@@ -13,6 +13,7 @@ gulp.task('build:css', () => {
 			}
 		}))
 		.pipe(sass({
+				includePaths: ['./css'],
 				//outputStyle: 'compressed'
 			}).on('error', sass.logError))
 		.pipe(gulp.dest('../resources/static/assets/css'))
